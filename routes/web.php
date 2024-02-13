@@ -9,7 +9,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\MouseMoveController;
 use App\Http\Controllers\ScrollSpeedController;
 use App\Http\Controllers\ButtonClickController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\KeyEventController;
+use App\Http\Controllers\PredictionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,19 @@ use App\Http\Controllers\KeyEventController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/customer/store', [CustomerController::class, 'store'])->name('customer_data.store');
+
+Route::get('customer_data', function () {
+    return view('customer_data');
+})->name('customer.data');
+
+
+
+Route::get('/customer', [CustomerController::class, 'view_create_page'])->name('cutomer_data');
+
+Route::get('/customer_data_view', [CustomerController::class, 'view_customer_data_page'])->name('customer.dataview');
+
 
 // Define Custom User Registration & Login Routes
 Route::controller(LoginRegisterController::class)->group(function () {
@@ -44,14 +59,15 @@ Route::controller(VerificationController::class)->group(function () {
     Route::post('/email/resend', 'resend')->name('verification.resend');
 });
 
-Route::post('/store-device-info', [StoreUserDataController::class, 'storeDeviceInfo'])->name('store.device.info');
 
-Route::post('/get-ip-info', [StoreUserDataController::class, 'getIpInfo'])->name('get.ip.info');
+// Route::post('/store-device-info', [StoreUserDataController::class, 'storeDeviceInfo'])->name('store.device.info');
 
-Route::post('/store-mouse-move', [MouseMoveController::class, 'store']);
+// Route::post('/get-ip-info', [StoreUserDataController::class, 'getIpInfo'])->name('get.ip.info');
 
-Route::post('/store-scroll-speed', [ScrollSpeedController::class, 'store']);
+// Route::post('/store-mouse-move', [MouseMoveController::class, 'store']);
 
-Route::post('/track-button-click', [ButtonClickController::class, 'trackButtonClick']);
+// Route::post('/store-scroll-speed', [ScrollSpeedController::class, 'store']);
 
-Route::post('/track-key-event', [KeyEventController::class, 'trackKeyEvent']);
+// Route::post('/track-button-click', [ButtonClickController::class, 'trackButtonClick']);
+
+// Route::post('/track-key-event', [KeyEventController::class, 'trackKeyEvent']);
