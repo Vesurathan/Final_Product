@@ -21,8 +21,8 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         Customer::create($request->all());
-        return $request;
+        // return $request;
         // Redirect back with success message
-        // return redirect()->back()->with('success', 'Customer data has been saved successfully!');
+        return redirect()->back()->with('success', 'Customer data has been saved successfully!');
     }
 }

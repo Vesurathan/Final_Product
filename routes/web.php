@@ -12,6 +12,7 @@ use App\Http\Controllers\ButtonClickController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\KeyEventController;
 use App\Http\Controllers\PredictionController;
+use App\Http\Controllers\DeliveryPredictionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,17 +29,25 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/customer/store', [CustomerController::class, 'store'])->name('customer_data.store');
 
 Route::get('customer_data', function () {
     return view('customer_data');
 })->name('customer.data');
 
+//prediction controller
+Route::get('/prediction', [PredictionController::class, 'view_prediction_page'])->name('prediction');
+
+Route::post('/check-probability', [PredictionController::class, 'check_probability'])->name('check.probability');
+
+// // Assuming your form's action is set to this route
+// Route::post('/delivery-predictions/handle', [PredictionController::class, 'handleForm'])->name('save.probability');
 
 
+
+//customer contyroller
 Route::get('/customer', [CustomerController::class, 'view_create_page'])->name('cutomer_data');
-
 Route::get('/customer_data_view', [CustomerController::class, 'view_customer_data_page'])->name('customer.dataview');
+Route::post('/customer/store', [CustomerController::class, 'store'])->name('customer_data.store');
 
 
 // Define Custom User Registration & Login Routes
