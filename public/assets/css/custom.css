@@ -8,6 +8,7 @@ html {
 
 /* Background and Welcome Section Styles */
 .welcome-background {
+    margin-top: 80px;
     color: #666;
     background-size: cover;
     height: 100vh;
@@ -63,6 +64,7 @@ html {
 .research-section {
     display: flex;
     background-color: #f8f9fa;
+    align-items: center;
     justify-content: space-between;
     padding: 30px;
     box-sizing: border-box;

@@ -57,30 +57,4 @@ class PredictionController extends Controller
             return redirect()->back()->with('error', 'An unexpected error occurred: ' . $e->getMessage());
         }
     }
-
-    // public function handleForm(Request $request)
-    // {
-
-
-
-    //     $this->check_probability($request);
-
-    //     try {
-    //         $response = $client->request('POST', $url, [
-    //             'headers' => [
-    //                 'Accept' => 'application/json',
-    //             ],
-    //         ]);
-
-    //         $responseBody = json_decode($response->getBody(), true);
-
-    //         $probability = $responseBody['Probability'] ?? 'N/A'; // Adjust based on actual API response structure
-
-    //         // return redirect()->back()->with('success', 'Probability: ' . $probability);
-    //     } catch (GuzzleException $e) {
-    //         return redirect()->back()->with('error', 'Failed to get prediction: ' . $e->getMessage());
-    //     } catch (\Exception $e) {
-    //         return redirect()->back()->with('error', 'An unexpected error occurred: ' . $e->getMessage());
-    //     }
-    // }
 }

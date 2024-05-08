@@ -113,15 +113,6 @@
             let probabilityValue = parseFloat(probability.replace(/[^\d.]/g, ''));
 
 
-            let badgeClass = "text-bg-danger"; // Default to red for values less than 50
-            if (probabilityValue >= 75) {
-                message = "Customer can perform cash on delivery.";
-                badgeClass = "text-bg-success"; // Change to green for values equal to or greater than 50
-            } else {
-                message = "Customer can't perform cash on delivery.";
-            }
-
-
             // Populate and show the modal
             let modalBody = document.querySelector('#probabilityModal .modal-body');
             modalBody.innerHTML = `<p><span class="badge text-bg-success">${probability}</span></p><p>${message}</p>`;

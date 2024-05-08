@@ -3,222 +3,7 @@
 @section('content')
 
 <head>
-    <!-- 
-    <script>
-        var csrfToken = '{{ csrf_token() }}';
-    </script> -->
 
-    <!-- <script>
-        // Function to send mouse move data to the server
-        function sendMouseMoveData(x, y) {
-            fetch('/store-mouse-move', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                },
-                body: JSON.stringify({
-                    x: x,
-                    y: y,
-                    user_id: '{{ auth()->id() }}'
-                }),
-            });
-        }
-
-        // Function to handle mouse move events
-        function handleMouseMove(event) {
-            var x = event.clientX;
-            var y = event.clientY;
-
-            // Log mouse move data to the console
-            console.log('Mouse moved to:', {
-                x: x,
-                y: y
-            });
-
-            // Limit the frequency of data sent to the server (e.g., every 200 milliseconds)
-            if (!handleMouseMove.lastSent || (Date.now() - handleMouseMove.lastSent > 300)) {
-                // Call the function to send data to the server
-                sendMouseMoveData(x, y);
-
-                // Update the last sent timestamp
-                handleMouseMove.lastSent = Date.now();
-            }
-
-
-
-        }
-
-        // Add an event listener for mouse move events
-        document.addEventListener('mousemove', handleMouseMove);
-        //end of the mouse movement script
-
-
-
-        //start of the scrolling speed data script
-        var lastScrollTop = 0;
-        var lastTimestamp = Date.now();
-
-        function handleScroll(event) {
-            var currentScrollTop = window.scrollY;
-            var currentTimestamp = Date.now();
-
-            // Calculate the distance scrolled
-            var scrollDistance = currentScrollTop - lastScrollTop;
-
-            // Calculate the time elapsed
-            var timeElapsed = currentTimestamp - lastTimestamp;
-
-            // Calculate the speed (pixels per millisecond)
-            var scrollSpeed = Math.abs(scrollDistance) / timeElapsed;
-
-            // Log or send the scroll speed to the server for analysis
-            console.log('Scroll Speed:', scrollSpeed);
-
-            // Update the last scroll position and timestamp
-            lastScrollTop = currentScrollTop;
-            lastTimestamp = currentTimestamp;
-
-            // Send the scroll speed data to the server
-            sendScrollSpeedData(scrollSpeed, csrfToken);
-        }
-
-        function sendScrollSpeedData(scrollSpeed, csrfToken) {
-            // Send the scroll speed data to the server
-            fetch('/store-scroll-speed', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                },
-                body: JSON.stringify({
-                    scroll_speed: scrollSpeed,
-                    user_id: '{{ auth()->id() }}'
-                }),
-            })
-        }
-
-
-
-        // Add an event listener for scroll events
-        document.addEventListener('scroll', handleScroll);
-        // end of the scrolling speed script
-        {
-            document.addEventListener('DOMContentLoaded', function() {
-                // Your existing code here
-                document.getElementById('button_tab').addEventListener('click', function() {
-                    console.log('Button Tab is clicked');
-                    sendEventData('Button_Tab_click', {
-                        buttonId: 'button_tab'
-                    });
-                });
-
-                document.getElementById('Alerts_tab').addEventListener('click', function() {
-                    console.log('Alerts_tab is clicked!');
-                    sendEventData('Alerts_tab_click', {
-                        buttonId: 'Alerts_tab'
-                    });
-                });
-
-                document.getElementById('card_tab').addEventListener('click', function() {
-                    console.log('card_tab is clicked!');
-                    sendEventData('card_tab_click', {
-                        buttonId: 'card_tab'
-                    });
-                });
-
-                document.getElementById('form_tab').addEventListener('click', function() {
-                    console.log('form_tab is clicked!');
-                    sendEventData('form_tab_click', {
-                        buttonId: 'form_tab'
-                    });
-                });
-
-
-                document.getElementById('typography_tab').addEventListener('click', function() {
-                    console.log('typography_tab clicked!');
-                    sendEventData('typography_tab_click', {
-                        buttonId: 'typography_tab'
-                    });
-                });
-
-
-                document.getElementById('icon_tab').addEventListener('click', function() {
-                    console.log('icon_tab clicked!');
-                    sendEventData('icon_tab_click', {
-                        buttonId: 'icon_tab'
-                    });
-                });
-
-
-                document.getElementById('sample_tab').addEventListener('click', function() {
-                    console.log('sample_tab clicked!');
-                    sendEventData('sample_tab_click', {
-                        buttonId: 'sample_tab'
-                    });
-                });
-
-
-
-            });
-
-            function sendEventData(eventType, eventData) {
-                fetch('/track-button-click', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                    },
-                    body: JSON.stringify({
-                        action: eventType,
-                        button_id: eventData.buttonId,
-                        user_id: '{{ auth()->id() }}'
-                    }),
-                });
-            }
-
-        } {
-
-            // start of keyboardEvents
-
-            var keyPresses = [];
-
-            document.addEventListener('keydown', function(event) {
-                keyPresses.push(event.key);
-
-                if (keyPresses.length >= 5) {
-                    sendEventData('key_pressed_batch', {
-                        keys: keyPresses
-                    });
-                    keyPresses = [];
-                }
-            });
-
-            window.addEventListener('beforeunload', function() {
-                if (keyPresses.length > 0) {
-                    sendEventData('key_pressed_batch', {
-                        keys: keyPresses
-                    });
-                }
-            });
-
-            function sendEventData(eventType, eventData) {
-                fetch('/track-key-event', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                    },
-                    body: JSON.stringify({
-                        type: eventType,
-                        data: eventData,
-                        user_id: '{{ auth()->id() }}'
-                    }),
-                });
-            }
-
-        }
-    </script> -->
     <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/logos/favicon.png') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}" />
 
@@ -259,7 +44,7 @@
                             <span class="hide-menu">Home</span>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="" aria-expanded="false">
+                            <a class="sidebar-link" href="/" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-layout-dashboard"></i>
                                 </span>
@@ -290,7 +75,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="" aria-expanded="false">
+                            <a class="sidebar-link" href="/" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-alert-circle"></i>
                                 </span>
@@ -298,7 +83,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="" aria-expanded="false">
+                            <a class="sidebar-link" href="/" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-cards"></i>
                                 </span>
@@ -315,7 +100,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="" aria-expanded="false">
+                            <a class="sidebar-link" href="/" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-typography"></i>
                                 </span>
@@ -327,7 +112,7 @@
                             <span class="hide-menu">EXTRA</span>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="" aria-expanded="false">
+                            <a class="sidebar-link" href="/" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-mood-happy"></i>
                                 </span>
@@ -335,7 +120,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="" aria-expanded="false">
+                            <a class="sidebar-link" href="/" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-aperture"></i>
                                 </span>
