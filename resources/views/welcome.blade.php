@@ -46,57 +46,6 @@
                 @endif
             </div>
         </div>
-
-        <!-- Research Section -->
-        <h2>Meet Our Researchers</h2>
-        <div class="research-section">
-
-            <div class="research-cards-container">
-                <div class="research-card">
-                    <img src="{{ asset('assets/images/PEOPLES/NUWAN.jpeg') }}" alt="Researcher">
-                    <h3>Dr Nuwan Kuruwitaarachchi</h3>
-                    <!-- <p>Senior Lecturer, Faculty of Technology</p><br /> -->
-
-                </div>
-
-            </div>
-
-            <div class="research-cards-container">
-                <div class="research-card">
-                    <img class="research_img" src="{{ asset('assets/images/PEOPLES/NIMAL.jpeg') }}" alt="Researcher">
-                    <h3>Dr. (Eng.) Nimal Skandhakumar</h3>
-                    <!-- <p>hi@nimal.info</p> -->
-                </div>
-
-            </div>
-
-            <div class="research-cards-container">
-                <div class="research-card">
-                    <img class="research_img" src="{{ asset('assets/images/PEOPLES/VISWA.jpeg') }}" alt="Researcher">
-                    <h3>S.Vesurathan</h3>
-                    <!-- <p>Short description or bio of the researcher. Something engaging and interesting.</p> -->
-                </div>
-
-            </div>
-
-            <div class="research-cards-container">
-                <div class="research-card">
-                    <img class="research_img" src="{{ asset('assets/images/PEOPLES/SARA.jpeg') }}" alt="Researcher">
-                    <h3>S.Saranka</h3>
-                    <!-- <p>Short description or bio of the researcher. Something engaging and interesting.</p> -->
-                </div>
-
-            </div>
-
-            <div class="research-cards-container">
-                <div class="research-card">
-                    <img class="research_img" src="{{ asset('assets/images/PEOPLES/PIUMI.jpeg') }}" alt="Researcher">
-                    <h3>Y.P.Dulakshi</h3>
-                    <!-- <p>Short description or bio of the researcher. Something engaging and interesting.</p> -->
-                </div>
-
-            </div>
-
         </div>
     </div>
 </body>
