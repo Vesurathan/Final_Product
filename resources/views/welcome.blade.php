@@ -13,8 +13,6 @@
 
 <body class="antialiased">
 
-
-
     <div class="welcome-background">
         <!-- Authentication Links
         @if (Route::has('login'))
