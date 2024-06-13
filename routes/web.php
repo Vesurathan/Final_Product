@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\Auth\LoginRegisterController;
-use App\Http\Controllers\StoreUserDataController;
+// use App\Http\Controllers\StoreUserDataController;
 use Illuminate\Auth\SessionGuard;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\MouseMoveController;
@@ -14,16 +14,6 @@ use App\Http\Controllers\KeyEventController;
 use App\Http\Controllers\PredictionController;
 use App\Http\Controllers\DeliveryPredictionController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
@@ -38,10 +28,6 @@ Route::get('customer_data', function () {
 Route::get('/prediction', [PredictionController::class, 'view_prediction_page'])->name('prediction');
 
 Route::post('/check-probability', [PredictionController::class, 'check_probability'])->name('check.probability');
-
-// // Assuming your form's action is set to this route
-// Route::post('/delivery-predictions/handle', [PredictionController::class, 'handleForm'])->name('save.probability');
-
 
 
 //customer contyroller
@@ -68,15 +54,3 @@ Route::controller(VerificationController::class)->group(function () {
     Route::post('/email/resend', 'resend')->name('verification.resend');
 });
 
-
-// Route::post('/store-device-info', [StoreUserDataController::class, 'storeDeviceInfo'])->name('store.device.info');
-
-// Route::post('/get-ip-info', [StoreUserDataController::class, 'getIpInfo'])->name('get.ip.info');
-
-// Route::post('/store-mouse-move', [MouseMoveController::class, 'store']);
-
-// Route::post('/store-scroll-speed', [ScrollSpeedController::class, 'store']);
-
-// Route::post('/track-button-click', [ButtonClickController::class, 'trackButtonClick']);
-
-// Route::post('/track-key-event', [KeyEventController::class, 'trackKeyEvent']);
